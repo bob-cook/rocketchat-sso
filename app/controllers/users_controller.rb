@@ -36,7 +36,7 @@ module RocketChatSso
 
             # open the Rocket.Chat database user collection
 
-            rcdb_client = RocketChat.RCDB_Client()
+            rcdb_client = RocketChatSso.RCDB_Client()
 
             if rcdb_client.nil?
                 Rails.logger.error 'ROCKETCHAT-SSO | RC DB not accessible?'
@@ -44,7 +44,7 @@ module RocketChatSso
                 return
             end
 
-            rcdb_users_collection = RocketChat.RCDB_Users_Collection( rcdb_client )
+            rcdb_users_collection = RocketChatSso.RCDB_Users_Collection( rcdb_client )
 
             if rcdb_users_collection.nil?
                 Rails.logger.error 'ROCKETCHAT-SSO | RC DB users collection missing?'
@@ -55,21 +55,21 @@ module RocketChatSso
 
             # retrieve the active Rocket.Chat users other than this one
 
-            rcdb_active_users = RocketChat.RDCB_Find_Online_Users( rcdb_users_collection )
+            rcdb_online = RocketChatSso.RDCB_Find_Online_Users( rcdb_users_collection )
 
             # count the number of other users
 
             other_users_online = 0
 
-            if not rcdb_active_users.nil?
+            if not rcdb_online.nil?
 
-                rcdb_active_users.each do |username|
+                rcdb_online.each do |username|
                     if username != current_user[ 'username' ]
                         other_users_online += 1
                     end
                 end
 
-                rcdb_active_users.close_query()
+                rcdb_online.close_query()
 
             end
 
