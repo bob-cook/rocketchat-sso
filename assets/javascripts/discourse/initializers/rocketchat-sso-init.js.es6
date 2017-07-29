@@ -38,7 +38,7 @@ export default
 
     initialize()
     {
-        this.messageBus.subscribe( '/rocketchat-sso-status',
+        this.messageBus.subscribe( '/rocketchat-sso-users-online',
                                    this.messageProcessor() );
 
         SiteHeader.reopen( {
