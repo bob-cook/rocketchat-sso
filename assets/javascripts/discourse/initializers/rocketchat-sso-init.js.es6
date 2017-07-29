@@ -64,7 +64,7 @@ export default
                                         if (!api.getCurrentUser()) { return [] }
                                         const icon_name = 'i.'
                                                         + RCSSO_ICON
-                                                        + '.rocketchat-sso-button-icon'
+                                                        + 'd-icon.rocketchat-sso-button-icon'
                                         return helper.h( 'li', [
                                             helper.h( 'a#rocketchat-sso-button',
                                             {
