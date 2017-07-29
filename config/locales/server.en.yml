@@ -1,0 +1,8 @@
+en:
+    site_settings:
+        rocketchatsso_enabled: 'Rocket.Chat SSO Integration Enabled?'
+        rocketchatsso_site_url: 'Rocket.Chat Site URL e.g. https://chat.example.com/'
+        rocketchatsso_site_name: 'Rocket.Chat Site Name e.g. My Rocket.Chat Site'
+        rocketchatsso_mongodb_server: 'MongoDB IP Address and Port e.g. localhost:27017'
+        rocketchatsso_api_username: 'Rocket.Chat API Username'
+        rocketchatsso_api_password: 'Rocket.Chat API Password'

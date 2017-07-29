@@ -1,0 +1,19 @@
+plugins:
+    rocketchatsso_enabled:
+        default: false
+        client: false
+    rocketchatsso_site_url:
+        default: ''
+        client: true
+    rocketchatsso_site_name:
+        default: ''
+        client: true
+    rocketchatsso_mongodb_server:
+        default: 'localhost:27017'
+        client: false
+    rocketchatsso_api_username:
+        default: ''
+        client: false
+    rocketchatsso_api_password:
+        default: ''
+        client: false
