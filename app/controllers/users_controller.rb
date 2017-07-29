@@ -65,10 +65,10 @@ module RocketChatSso
 
                 Rails.logger.info 'ROCKETCHAT-SSO | this user: ' + current_user[ 'username' ]
 
-                rcdb_online.each do |username|
-                    if username != current_user[ 'username' ]
+                rcdb_online.each do |user|
+                    if user[ 'username' ] != current_user[ 'username' ]
                         other_users_online += 1
-                        Rails.logger.info 'ROCKETCHAT-SSO | other online user: ' + username
+                        Rails.logger.info 'ROCKETCHAT-SSO | other online user: ' + user[ 'username' ]
                     end
                 end
 
