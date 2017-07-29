@@ -80,11 +80,13 @@ module RocketChatSso
             # and return the results
 
             if other_users_online > 0
+                Rails.logger.info 'ROCKETCHAT-SSO | found other users online'
                 render json: { :result => true,
                                :count  => other_users_online }, status: 200
                 return
             end
 
+            Rails.logger.info 'ROCKETCHAT-SSO | no other users online :('
             render json: { :result => false }, status: 200
             return
 
