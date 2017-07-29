@@ -22,7 +22,6 @@ export default
                 if ( username != user[ 'username' ] )
                 {
                     users_online_besides_me += 1
-                    console.log( 'rocketchat-sso | ' + username )
                 }
             } )
 
@@ -39,7 +38,6 @@ export default
 
     initialize()
     {
-        console.log( 'rocketchat-sso | int()' )
         this.messageBus.subscribe( '/rocketchat-sso-status',
                                    this.messageProcessor() );
 

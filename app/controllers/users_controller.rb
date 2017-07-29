@@ -29,7 +29,7 @@ module RocketChatSso
                 return
             end
 
-            if not SiteSetting.rocketchat_enabled
+            if not SiteSetting.rocketchatsso_enabled
                 render json: { :error => 'Disabled' }, status: 401
                 return
             end
