@@ -13,11 +13,11 @@ gem 'rest-client', '2.0.2'
 
 enabled_site_setting :rocketchatsso_enabled
 
+load Rails.root.join( 'plugins', 'rocketchat-sso', 'lib', 'engine.rb' ).to_s
+
 def rocketchatsso_require( path )
     require Rails.root.join( 'plugins', 'rocketchat-sso', 'app', path ).to_s
 end
-
-load Rails.root.join( 'plugins', 'rocketchat-sso', 'lib', 'engine.rb' ).to_s
 
 after_initialize do
 
@@ -29,7 +29,7 @@ after_initialize do
     require 'rest-client'
 
     rocketchatsso_require 'controllers/auth_controller.rb'
-#    require File.expand_path( '../app/controllers/rocketchat-sso/users_controller.rb', __FILE__ )
-    require File.expand_path( '../app/jobs/rocketchat-sso/send-busy-info.rb', __FILE__ )
+    rocketchatsso_require 'controllers/users_controller.rb'
+    rocketchatsso_require 'jobs/send-users-online.rb'
 
 end
