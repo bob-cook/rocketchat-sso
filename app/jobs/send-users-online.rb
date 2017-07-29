@@ -15,14 +15,14 @@ module ::Jobs
 
             # open the Rocket.Chat database user collection
 
-            rcdb_client = RocketChat.RCDB_Client()
+            rcdb_client = RocketChatSso.RCDB_Client()
 
             if rcdb_client.nil?
                 Rails.logger.error 'ROCKETCHAT-SSO | RC DB not accessible?'
                 return
             end
 
-            rcdb_users_collection = RocketChat.RCDB_Users_Collection( rcdb_client )
+            rcdb_users_collection = RocketChatSso.RCDB_Users_Collection( rcdb_client )
 
             if rcdb_users_collection.nil?
                 Rails.logger.error 'ROCKETCHAT-SSO | RC DB users collection missing?'
@@ -40,7 +40,7 @@ module ::Jobs
 
             if not rcdb_online.nil?
 
-                rcdb_active_users.each do |user|
+                rcdb_online.each do |user|
                     users_online_now.push( user[ 'username' ] )
                 end
 
@@ -54,6 +54,7 @@ module ::Jobs
 
             # and publish the results
 
+            Rails.logger.info 'ROCKETCHAT-SSO | online: ' + users_online_now.to_json
             MessageBus.publish( '/rocketchat-sso-users-online', users_online_now.as_json )
 
         end
