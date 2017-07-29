@@ -63,9 +63,12 @@ module RocketChatSso
 
             if not rcdb_online.nil?
 
+                Rails.logger.info 'ROCKETCHAT-SSO | this user: ' + current_user[ 'username' ]
+
                 rcdb_online.each do |username|
                     if username != current_user[ 'username' ]
                         other_users_online += 1
+                        Rails.logger.info 'ROCKETCHAT-SSO | other online user: ' + username
                     end
                 end
 
@@ -80,7 +83,7 @@ module RocketChatSso
             # and return the results
 
             if other_users_online > 0
-                Rails.logger.info 'ROCKETCHAT-SSO | found other users online'
+                Rails.logger.info 'ROCKETCHAT-SSO | found other users online :)'
                 render json: { :result => true,
                                :count  => other_users_online }, status: 200
                 return
