@@ -7,7 +7,7 @@ Rocket.Chat single-signon integration with Discourse
 
 - create-user
 - edit-other-user-active-status
-- other???
+- edit-other-user-info
 
 ### Additional Permissions
 
@@ -16,5 +16,11 @@ Rocket.Chat single-signon integration with Discourse
 
 ## Known Issues / Limitations
 
-- updates to usernames, names, email, avatars are not synchronized
+- logout from Rocket.Chat just returns the user back to Rocket.Chat, logged in
+
+- updates to user metadata aren't synchronized after initial user create in Rocket.Chat 
+    - usernames
+    - names
+    - email
+    - avatars
 
