@@ -1,13 +1,13 @@
 # rocketchat-sso
 Rocket.Chat single-signon integration with Discourse
 
-Allow your Discourse users access to a Rocket.Chat instance usign their same identity, avatar, etc. A toolbar icon provides easy access to open a new browser tab to the chat system.
+Allow your Discourse users access to a Rocket.Chat instance using their same identity, avatar, etc. A toolbar icon provides easy access to open a new browser tab to the chat system.
 
 ## Discourse Configuration
 
 ### Install the plugin
 
-Add this plug-in using the normal plug-in configuration method in your app.yaml file. The git URL is https://github.com/bob-cook/rocketchat-sso.git
+Add this plug-in using the normal plug-in configuration method in your app.yml file. The git URL is https://github.com/bob-cook/rocketchat-sso.git
 
 ### Rocket.Chat MongoDB Access
 
@@ -18,7 +18,7 @@ You will need to allow access to the Rocket.Chat MongoDB instance. The simplest 
 ### Dedicated API User
 Create a user which will be the dedicated "bot" for the Discourse plug-in to coordinate changes with your Rocket.Chat instance.
 
-This user will need to have the following permissions configured:
+This user will need to be in a group with the following permissions:
 
 - create-user
 - edit-other-user-active-status
