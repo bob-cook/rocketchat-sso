@@ -59,6 +59,8 @@ module RocketChatSso
 
     def self.RDCB_Find_User( rcdb_users_collection, username )
 
+        Rails.logger.info 'ROCKETCHAT-SSO | RC DB find user: ' + username
+
         begin
             u = rcdb_users_collection.find( { :username => username } ).limit( 1 ).first
         rescue => error
@@ -78,6 +80,8 @@ module RocketChatSso
     # ------------------------------------------------------------------------------------
 
     def self.RDCB_Find_Online_Users( rcdb_users_collection )
+
+        Rails.logger.info 'ROCKETCHAT-SSO | RC DB find online users'
 
         query = { :status => 'online', :type => 'user' }
 
@@ -100,6 +104,8 @@ module RocketChatSso
     # ------------------------------------------------------------------------------------
 
     def self.RCDB_Update_User_Token( rcdb_users_collection, username, token )
+
+        Rails.logger.info 'ROCKETCHAT-SSO | RC DB update token for: ' + username
 
         begin
             u = rcdb_users_collection.find( { :username => username } ).limit( 1 ).first
@@ -140,6 +146,8 @@ module RocketChatSso
     # ------------------------------------------------------------------------------------
 
     def self.RCDB_Force_User_Logout( rcdb_users_collection, username )
+
+        Rails.logger.info 'ROCKETCHAT-SSO | RC DB force logout for: ' + username
 
         begin
             u = rcdb_users_collection.find( { :username => username } ).limit( 1 ).first

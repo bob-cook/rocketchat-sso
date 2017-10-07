@@ -68,7 +68,7 @@ export default
                                         return helper.h( 'li', [
                                             helper.h( 'a#rocketchat-sso-button',
                                             {
-                                                className: 'icon',
+                                                className: 'icon btn-flat',
                                                 href:      RCSSO_URL,
                                                 title:     RCSSO_NAME,
                                                 target:    '_blank'
