@@ -79,21 +79,24 @@ export default
 
                                 this.queueRerender()
 
-                                ajax( '/rocketchat-sso/others-online',
-                                      { method: 'GET'} ).then(
-                                        function( result )
-                                        {
-                                            if ( result[ 'result' ] )
+                                if ( api.getCurrentUser() )
+                                {
+                                    ajax( '/rocketchat-sso/others-online',
+                                          { method: 'GET' } ).then(
+                                            function( result )
                                             {
-                                                $('#rocketchat-sso-button').css('color', '#266fdc')
-                                            }
-                                            else
-                                            {
-                                                $('#rocketchat-sso-button').css('color', '')
-                                            }
-                                        },
-                                        function( msg ) { console.log( msg ) }
-                                    );
+                                                if ( result[ 'result' ] )
+                                                {
+                                                    $('#rocketchat-sso-button').css('color', '#266fdc')
+                                                }
+                                                else
+                                                {
+                                                    $('#rocketchat-sso-button').css('color', '')
+                                                }
+                                            },
+                                            function( msg ) { console.log( msg ) }
+                                        );
+                                }
 
                             }, console.log )
                 } )
